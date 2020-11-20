@@ -1,0 +1,4 @@
+extract pcap file from level02 home folder
+open with tshark -r level02.pcap > out.txt
+
+
