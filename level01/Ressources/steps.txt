@@ -2,4 +2,3 @@ cat /etc/passwd | grep flag01
 	42hDRfypTqqnw
 
 using John The Ripper, this hash converts into "abcdefg"
-
