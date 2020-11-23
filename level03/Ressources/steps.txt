@@ -1,0 +1,21 @@
+Inside home folder, there is a binary file, level03.
+Decompiling with Ghidra, we get this main function:
+
+int main(int argc,char **argv,char **envp)
+
+{
+  __gid_t __rgid;
+  __uid_t __ruid;
+  int ret;
+  gid_t gid;
+  uid_t uid;
+  
+  __rgid = getegid();
+  __ruid = geteuid();
+  setresgid(__rgid,__rgid,__rgid);
+  setresuid(__ruid,__ruid,__ruid);
+  ret = system("/usr/bin/env echo Exploit me");
+  return ret;
+}
+
+
