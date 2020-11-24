@@ -1,0 +1,5 @@
+find / -name mail
+cat /rofs/var/mail/level05
+
+	*/2 * * * * su -c "sh /usr/sbin/openarenaserver" - flag05
+ª
