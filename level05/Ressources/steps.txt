@@ -2,8 +2,9 @@ find / -name mail
 cat /rofs/var/mail/level05
 
 	*/2 * * * * su -c "sh /usr/sbin/openarenaserver" - flag05
-ª
-
+Googling "*/2 * * * *" this seems to be a cron schedule expression that executes the
+script openarenaserver every two minutes"
+man crontab
 This openarenaserver is a script, extracting it with scp gives us this:
 
 #!/bin/sh
