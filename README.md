@@ -1,5 +1,6 @@
 # snow-crash
 Cybersecurity branch - 42 Software Engineering
+![](snow-crash.png)
 ## Pentesting virtual machine
 ### Linux vulnerabilities
 
