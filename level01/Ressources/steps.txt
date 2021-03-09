@@ -3,6 +3,7 @@ cat /etc/passwd | grep flag01
 
 using John The Ripper, this hash converts into "abcdefg"
 
+___________________________________________________________
 
 root@f06542a7a1d2:~# echo 42hDRfypTqqnw > hash
 root@f06542a7a1d2:~# john hash
