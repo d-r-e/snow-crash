@@ -2,3 +2,13 @@ cat /etc/passwd | grep flag01
 	42hDRfypTqqnw
 
 using John The Ripper, this hash converts into "abcdefg"
+
+
+root@f06542a7a1d2:~# echo 42hDRfypTqqnw > hash
+root@f06542a7a1d2:~# john hash
+Loaded 1 password hash (descrypt, traditional crypt(3) [DES 128/128 SSE2-16])
+No password hashes left to crack (see FAQ)
+root@f06542a7a1d2:~# john --show hash
+?:abcdefg
+
+1 password hash cracked, 0 left
