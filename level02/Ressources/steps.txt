@@ -1,5 +1,5 @@
 extract pcap file from level02 home folder using scp
-open with tshark -r level02.pcap > out.txt
+open with tshark -r level02.pcap -T fields -e data.data > out.txt
 
 filtering the output, a word "Password:" can be found, and next to it:
 
@@ -10,3 +10,19 @@ cat output |grep 040
 which converted to ascii results in 
 "ft_waNDReL0L"
 (7f are backspaces)
+
+ft_wandr[backspace][backspace][backspace]NDRelL0L -> ft_waNDRelLOL
+
+__________________________________-__________________________________
+ÿý%ÿü%ÿû&ÿýÿý ÿý#ÿý'ÿý$ÿþ&ÿûÿû ÿû#ÿû'ÿü$ÿú ÿðÿú#ÿðÿú'ÿðÿúÿðÿú 38400,38400ÿðÿú#SodaCan:0ÿðÿú'DISPLAYSodaCan:0ÿðÿúxtermÿðÿûÿýÿý"ÿýÿûÿý!ÿýÿüÿû"ÿú"bb	B
+ÿÿÿÿÿðÿûÿú±1ÿðÿýÿû!ÿú"ÿðÿú"ÿðÿú!ÿðÿûÿýÿþ"ÿýÿûÿü"ÿú"ââ	Â
+ÿÿÿÿÿð
+Linux 2.6.38-8-generic-pae (::ffff:10.1.1.2) (pts/10)
+
+wwwbugs login: lleevveellXX
+
+Password: ft_wandrNDRelL0L
+
+
+Login incorrect
+wwwbugs login: 
