@@ -1,8 +1,7 @@
-on the machine, the usage of the program is 
+We launch a script for TOCTOU manipulation.
 
-./level10 file external_ip
 
 we can listen using nc:
 
-nc -l 6969
+nc -kl 6969
 
